@@ -27,7 +27,7 @@ def recommend_ui():
 def recommend():
     user_input = request.form.get('user_input')
     index = np.where(pt.index == user_input)[0][0]
-    similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
+    similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:6]
 
     data = []
     for i in similar_items:
@@ -44,4 +44,4 @@ def recommend():
     return render_template('recommend.html',data=data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
